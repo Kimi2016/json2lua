@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "json2lua", "json2lua\json2lua.vcxproj", "{73AB0262-6DF9-4657-A097-0069C5A75AFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73AB0262-6DF9-4657-A097-0069C5A75AFF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{73AB0262-6DF9-4657-A097-0069C5A75AFF}.Debug|Win32.Build.0 = Debug|Win32
+		{73AB0262-6DF9-4657-A097-0069C5A75AFF}.Release|Win32.ActiveCfg = Release|Win32
+		{73AB0262-6DF9-4657-A097-0069C5A75AFF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
