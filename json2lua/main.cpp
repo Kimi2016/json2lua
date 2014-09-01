@@ -9,7 +9,5 @@ int main(int argc, char **argv)
 	db->addFile(std::string(argv[1]));
 	db->loadAll();
 
-	getchar();
-
 	return 0;
 }
