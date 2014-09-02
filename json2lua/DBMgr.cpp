@@ -191,6 +191,16 @@ void DBMgr::parseFileToItems(std::string file)
 void DBMgr::addFile(std::string file)
 {
 	//auto path = FileUtils::getInstance()->fullPathForFilename(file);
+	auto pos = file.find_last_of("/");
+	if(pos < file.length())
+	{
+		file = file.substr(pos+1);
+	}
+	pos = file.find_last_of("\\");
+	if(pos < file.length())
+	{
+		file = file.substr(pos+1);
+	}
 	m_fileCache.push_back(file);
 }
 

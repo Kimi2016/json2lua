@@ -6,5 +6,6 @@
 5.xls详细用法，参考 test
 6.打开windows控制台，命令：
     json2lua.exe testJ2L.json 回车，则会生成testJ2L.lua文件。
-
-更加详细内容，参考代码。
+	或者运行 test下的generate.bat
+	
+更加详细内容，参考代码及脚本。
