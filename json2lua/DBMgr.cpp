@@ -142,7 +142,7 @@ void DBMgr::parseFileToItems(std::string file)
 	auto wmodule = std::string("local ") + file2 + std::string("={}\n");
 	fwrite(wmodule.c_str(), wmodule.length(), 1, fp2);
 
-	const char *head = "{\"id\":\"";
+	const char *head = "{\"id\":";
 	const unsigned int headLen = strlen(head);
 	char *begin = 0;
 	char *headEnd = 0;
