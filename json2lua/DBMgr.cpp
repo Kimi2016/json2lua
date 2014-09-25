@@ -17,6 +17,26 @@ DBMgr* DBMgr::getInstance()
 void DBMgr::writeItem(FILE *fp, std::string module, std::string item)
 {
 	char *p = (char*)item.c_str();
+	std::string id(item);
+	auto idPosBegin = item.find_first_of(":");
+	auto idPosEnd = item.find_first_of(",");
+	if(!(idPosBegin <= item.length() && idPosEnd <= item.length()))
+	{
+		printf("can't find id\n");
+		exit(-1);
+	}
+	id = id.substr(idPosBegin+1, idPosEnd-idPosBegin-1);
+	id = std::string("[") + id + std::string("]");
+	/*
+	if(*(id.c_str()) == "\"")
+	{
+		id = std::string("[
+	}
+	else
+	{
+
+	}
+	*/
 	while(1)
 	{
 		auto pos = item.find_first_of("\\");
@@ -79,14 +99,14 @@ void DBMgr::writeItem(FILE *fp, std::string module, std::string item)
 	}
 
 	auto idBegin = item.find_first_of("\"");
-	auto id = item.substr(idBegin+1);
-	auto idEnd = id.find_first_of("\"");
-	id = id.substr(0, idEnd);
-	auto moduleTab = std::string("\n") + module + "." + id + "=" + item + "\n";
+	
+	//auto idEnd = id.find_first_of("\"");
+	//id = id.substr(0, idEnd);
+	auto moduleTab = std::string("\n") + module + id + "=" + item + "\n";
 	fwrite(moduleTab.c_str(), moduleTab.length(), 1, fp);
 	for(auto it = std::begin(m_itemTables); it != std::end(m_itemTables); ++it)
 	{
-		auto subTab = module + "." + id + "." + *it + "\n";
+		auto subTab = module + id + "." + *it + "\n";
 		fwrite(subTab.c_str(), subTab.length(), 1, fp);
 	}
 }
@@ -156,6 +176,7 @@ void DBMgr::parseFileToItems(std::string file)
 	while(1)
 	{
 		begin = strstr(cp, head);
+		auto pos2 = s.find(std::string(head));
 		if(!begin)
 		{
 			break;
