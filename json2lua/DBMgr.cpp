@@ -26,6 +26,10 @@ void DBMgr::writeItem(FILE *fp, std::string module, std::string item)
 		exit(-1);
 	}
 	id = id.substr(idPosBegin+1, idPosEnd-idPosBegin-1);
+	if(id == "\"null\"")
+	{
+		return;
+	}
 	id = std::string("[") + id + std::string("]");
 	/*
 	if(*(id.c_str()) == "\"")
